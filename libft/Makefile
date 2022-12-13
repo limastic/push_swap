@@ -6,7 +6,7 @@
 #    By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 17:02:57 by nfaust            #+#    #+#              #
-#    Updated: 2022/12/13 20:51:28 by nfaust           ###   ########.fr        #
+#    Updated: 2022/12/13 23:35:38 by nfaust           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ BONUS_SOURCES = ft_lstnew.c \
 	ft_lstiter.c \
 	ft_lstmap.c \
 	ft_dblstadd_back.c \
-	ft_dblistsize.c \
+	ft_dblstsize.c \
 	ft_dblstadd_front.c \
 	ft_dblstclear.c \
 	ft_dblstdelone.c \

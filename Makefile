@@ -6,11 +6,11 @@
 #    By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 19:44:40 by nfaust            #+#    #+#              #
-#    Updated: 2022/12/13 21:56:38 by nfaust           ###   ########.fr        #
+#    Updated: 2022/12/13 23:50:03 by nfaust           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 LIBFTNAME = libft/libft.a
 CC = cc
 FLAGS = -Wall -Werror -Wextra
@@ -35,8 +35,9 @@ libft:
 	make bonus -C libft
 
 ${NAME}:    libft ${OBJ}
-	cp ${LIBFTNAME} ${NAME}
-	${ARCHIVE} ${NAME} ${OBJ}
+	${CC} ${FLAGS} ${OBJ} ${LIBFTNAME} -o ${NAME}
+#	cp ${LIBFTNAME} ${NAME}
+#	${ARCHIVE} ${NAME} ${OBJ}
 
 clean:
 	make clean -C libft
@@ -47,14 +48,15 @@ fclean:	clean
 	${REMOVE} ${NAME}
 
 bonus: libft ${OBJ} ${BONUS_OBJ}
-	cp ${LIBFTNAME} ${NAME}
-	${ARCHIVE} ${NAME} ${OBJ} ${BONUS_OBJ}
+	${CC} ${FLAGS} ${OBJ} ${BONUS_OBJ} ${LIBFTNAME} -o ${NAME}
+	#cp ${LIBFTNAME} ${NAME}
+	#${ARCHIVE} ${NAME} ${OBJ} ${BONUS_OBJ}
 
-keep_a: bonus clean
+keep_o: bonus clean
 
 %.o : %.c ${HEADER} Makefile
-	${CC} ${FLAGS}  -c $< -o $@ -I .
+	${CC} ${FLAGS}  -c $< -o $@ -I . 
 
 re:    fclean all
 
-.PHONY: re fclean all clean bonus libft test keep_a
+.PHONY: re fclean all clean bonus libft keep_o
