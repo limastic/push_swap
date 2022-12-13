@@ -6,7 +6,7 @@
 #    By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 17:02:57 by nfaust            #+#    #+#              #
-#    Updated: 2022/11/24 02:20:15 by nfaust           ###   ########.fr        #
+#    Updated: 2022/12/13 20:51:28 by nfaust           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,14 @@ BONUS_SOURCES = ft_lstnew.c \
 	ft_lstdelone.c \
 	ft_lstclear.c \
 	ft_lstiter.c \
-	ft_lstmap.c
+	ft_lstmap.c \
+	ft_dblstadd_back.c \
+	ft_dblistsize.c \
+	ft_dblstadd_front.c \
+	ft_dblstclear.c \
+	ft_dblstdelone.c \
+	ft_dblstlast.c \
+	ft_dblstnew.c
 
 OBJ = $(SOURCES:.c=.o)
 

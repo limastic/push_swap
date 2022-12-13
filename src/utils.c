@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:26:12 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/12 22:39:41 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/13 21:57:31 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,4 @@ t_dblist	*create_list(char **argv)
 		free_arr(numbers);
 	}
 	return (list);
-}
-
-void	*free_dblst(t_dblist *list)
-{
-	t_dblist	*temp;
-
-	while (list->next)
-	{
-		temp = list;
-		list = list->next;
-		free(temp);
-	}
-	free(list);
 }
