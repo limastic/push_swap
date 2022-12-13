@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_dblstclear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 02:42:12 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/07 20:08:38 by nfaust           ###   ########.fr       */
+/*   Created: 2022/12/07 19:59:22 by nfaust            #+#    #+#             */
+/*   Updated: 2022/12/12 22:53:54 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_lstsize(t_list *lst)
+void	ft_dblstclear(t_dblist **lst, void (*del)(void*))
 {
-	size_t	i;
-	t_list	*lst_temp;
+	t_dblist	*temp;
 
-	lst_temp = lst;
-	i = 0;
-	while (lst_temp)
+	if (lst && del && *lst)
 	{
-		i++;
-		lst_temp = lst_temp->next;
+		while (*lst)
+		{
+			temp = (*lst)->next;
+			ft_dblstdelone(*lst, del);
+			*lst = temp;
+		}
 	}
-	return (i);
 }

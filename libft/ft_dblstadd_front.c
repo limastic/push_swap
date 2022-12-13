@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_dblstadd_front.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 02:42:12 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/07 20:08:38 by nfaust           ###   ########.fr       */
+/*   Created: 2022/12/07 19:50:18 by nfaust            #+#    #+#             */
+/*   Updated: 2022/12/07 19:55:17 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_lstsize(t_list *lst)
+void	ft_dblstadd_front(t_dblist **lst, t_dblist *new)
 {
-	size_t	i;
-	t_list	*lst_temp;
-
-	lst_temp = lst;
-	i = 0;
-	while (lst_temp)
+	if (lst && new)
 	{
-		i++;
-		lst_temp = lst_temp->next;
+		if (*lst)
+		{
+			new->prev = NULL;
+			new->next = *lst;
+		}
+		*lst = new;
 	}
-	return (i);
 }

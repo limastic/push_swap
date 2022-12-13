@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_dblistsize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 02:42:12 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/07 20:08:38 by nfaust           ###   ########.fr       */
+/*   Created: 2022/12/07 20:07:19 by nfaust            #+#    #+#             */
+/*   Updated: 2022/12/07 20:23:35 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_lstsize(t_list *lst)
+size_t	ft_dblstsize(t_dblist *lst)
 {
-	size_t	i;
-	t_list	*lst_temp;
+	size_t		i;
+	t_dblist	*lst_temp;
 
 	lst_temp = lst;
 	i = 0;

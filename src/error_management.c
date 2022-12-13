@@ -6,11 +6,10 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:39:31 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/06 16:02:12 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/13 20:34:07 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
 #include "../headers/push_swap.h"
 #define MAX_INT "2147483647"
 
@@ -97,13 +96,31 @@ static int	check_len(char **argv)
 int	error_management(char **argv)
 {
 	if (!argv[0])
-		return (0);
+		return (1);
 	if (check_non_numeric(argv) || check_len(argv))
 		return (-1);
-	return (1);
+	return (0);
 }
 
-// to do
-/*
-duplicate numerics
-*/
+int	check_duplicate(t_dblist *list)
+{
+	t_dblist	*tmp;
+	size_t		tmp_len;
+
+	if (list)
+	{
+		while (list->next)
+		{
+			tmp = list;
+			tmp_len = ft_strlen(tmp->content);
+			while (list->next)
+			{
+				list = list->next;
+				if (!ft_memcmp(tmp->content, list->content, tmp_len + 1))
+					return (1);
+			}
+			list = tmp->next;
+		}
+	}
+	return (0);
+}
