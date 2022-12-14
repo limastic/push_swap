@@ -6,7 +6,7 @@
 #    By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 17:02:57 by nfaust            #+#    #+#              #
-#    Updated: 2022/12/13 23:35:38 by nfaust           ###   ########.fr        #
+#    Updated: 2022/12/14 00:22:35 by nfaust           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,9 +49,8 @@ SOURCES = ft_atoi.c \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
-	ft_putnbr_fd.c
-
-BONUS_SOURCES = ft_lstnew.c \
+	ft_putnbr_fd.c \
+	 ft_lstnew.c \
 	ft_lstadd_front.c \
 	ft_lstsize.c \
 	ft_lstlast.c \
@@ -70,16 +69,13 @@ BONUS_SOURCES = ft_lstnew.c \
 
 OBJ = $(SOURCES:.c=.o)
 
-OBJ_BONUS = $(BONUS_SOURCES:.c=.o)
-
 all:	${NAME}
 
 ${NAME}:    ${OBJ}
-	
 	${ARCHIVE} ${NAME} ${OBJ}
 
 clean:
-	${REMOVE} ${OBJ} ${OBJ_BONUS}
+	${REMOVE} ${OBJ}
 
 fclean:	clean
 	${REMOVE} ${NAME}
@@ -89,7 +85,4 @@ fclean:	clean
 
 re:    fclean all
 
-bonus:		${OBJ} ${OBJ_BONUS}
-	${ARCHIVE} ${NAME} ${OBJ} ${OBJ_BONUS}
-
-.PHONY: re fclean all clean bonus
+.PHONY: re fclean all clean
