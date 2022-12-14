@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:39:31 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/13 20:34:07 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/14 23:19:01 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,29 +66,29 @@ static int	check_overflow(char *number)
 
 static int	check_len(char **argv)
 {
-	size_t	i;
-	size_t	j;
+	ssize_t	i;
+	ssize_t	j;
 	size_t	max_len;
 	char	**numbers;
 
-	i = 0;
-	while (argv[i])
+	i = -1;
+	while (argv[++i])
 	{
-		j = 0;
-		numbers = ft_split(argv[i], ' ');
-		while (numbers[j])
+		j = -1;
+		numbers = skip_zeros(ft_split(argv[i], ' '));
+		if (!numbers)
+			return (1);
+		while (numbers[++j])
 		{	
 			max_len = 10;
 			if (numbers[j][0] == '-')
 				max_len++;
-			if (ft_strlen(numbers[j]) > max_len)
+			if (ft_strlen(numbers[j]) > max_len
+				|| (ft_strlen(numbers[j]) == max_len
+					&& check_overflow(numbers[j])))
 				return (free_arr(numbers), 1);
-			if (ft_strlen(numbers[j]) == max_len && check_overflow(numbers[j]))
-				return (free_arr(numbers), 1);
-			j++;
 		}
 		free_arr(numbers);
-		i++;
 	}
 	return (0);
 }
