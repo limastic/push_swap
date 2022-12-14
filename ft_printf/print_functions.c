@@ -6,11 +6,11 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 08:29:30 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/06 14:06:21 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/14 04:57:08 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/ft_printf.h"
+#include "ft_printf.h"
 #include "../libft/libft.h"
 
 int	ft_putchar(char c)

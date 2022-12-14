@@ -6,11 +6,11 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 18:15:52 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/13 20:48:23 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/14 05:06:13 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/ft_printf.h"
+#include "../ft_printf/ft_printf.h"
 #include "../headers/push_swap.h"
 
 int	main(int argc, char **argv)

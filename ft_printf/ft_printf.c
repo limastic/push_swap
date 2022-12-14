@@ -6,11 +6,11 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 19:45:23 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/05 18:41:09 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/14 04:56:47 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/ft_printf.h"
+#include "ft_printf.h"
 
 int	formats_p_u(char c, va_list arg)
 {

@@ -6,11 +6,11 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 08:53:14 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/05 18:41:03 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/14 04:57:01 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/ft_printf.h"
+#include "ft_printf.h"
 
 size_t	ft_put_u(unsigned int nbr, int check)
 {
