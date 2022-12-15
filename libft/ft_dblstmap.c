@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_dblstmap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 03:48:10 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/15 01:15:23 by nfaust           ###   ########.fr       */
+/*   Created: 2022/12/15 01:16:30 by nfaust            #+#    #+#             */
+/*   Updated: 2022/12/15 01:31:37 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_dblist	*ft_dblstmap(t_dblist *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new;
-	t_list	*first_elt;
+	t_dblist	*new;
+	t_dblist	*first_elt;
 
 	if (!lst || !f || !del)
 		return (NULL);
 	first_elt = NULL;
 	while (lst)
 	{
-		new = ft_lstnew(f(lst->content));
+		new = ft_dblstnew(f(lst->content));
 		if (!new)
 		{
 			while (first_elt)
@@ -34,7 +34,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			}
 			return (NULL);
 		}
-		ft_lstadd_back(&first_elt, new);
+		ft_dblstadd_back(&first_elt, new);
 		lst = lst->next;
 	}
 	return (first_elt);

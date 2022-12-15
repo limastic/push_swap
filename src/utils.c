@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:26:12 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/14 23:23:37 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/15 05:30:23 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,25 @@ char	**skip_zeros(char **numbers)
 		}
 	}
 	return (numbers);
+}
+
+t_dblist	*map_atoi(t_dblist *list)
+{
+	int			*i;
+	t_dblist	*first_elt;
+	t_dblist	*curr;
+	t_dblist	*new;
+
+	first_elt = NULL;
+	curr = list;
+	while (curr)
+	{
+		i = malloc(sizeof(int));
+		*i = ft_atoi(curr->content);
+		new = ft_dblstnew(i);
+		ft_dblstadd_back(&first_elt, new);
+		curr = curr->next;
+	}
+	ft_dblstclear(&list, free);
+	return (first_elt);
 }

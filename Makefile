@@ -6,7 +6,7 @@
 #    By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 19:44:40 by nfaust            #+#    #+#              #
-#    Updated: 2022/12/14 05:03:53 by nfaust           ###   ########.fr        #
+#    Updated: 2022/12/15 05:16:28 by nfaust           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,5 +62,8 @@ keep_o: bonus clean
 	${CC} ${FLAGS}  -c $< -o $@ -I . 
 
 re:    fclean all
+
+fsan:
+	${CC} ${FLAGS} -fsanitize=address -g3 ${OBJ} ${LIBFTNAME} ${PRINTFNAME} -o ${NAME}
 
 .PHONY: re fclean all clean bonus libft keep_o ft_printf
