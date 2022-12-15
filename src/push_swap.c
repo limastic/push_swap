@@ -6,14 +6,14 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 18:15:52 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/15 05:34:27 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/15 06:20:56 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf/ft_printf.h"
 #include "../headers/push_swap.h"
 
-t_dblist	*get_indexed_list(t_dblist *list)
+static t_dblist	*get_indexed_list(t_dblist *list)
 {
 	size_t		*count;
 	int			value;
@@ -42,12 +42,20 @@ t_dblist	*get_indexed_list(t_dblist *list)
 	return (first_elt);
 }
 
+void	print_dblst(t_dblist *list)
+{
+	while (list)
+	{
+		ft_printf("%i ", *(int *)list->content);
+		list = list->next;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	int			error;
 	t_dblist	*list;
 
-	(void) argc;
 	error = error_management(argv + 1);
 	if (error == -1)
 		return (ft_printf("Error\n"), 0);
@@ -57,6 +65,8 @@ int	main(int argc, char **argv)
 	if (check_duplicate(list))
 		return (ft_dblstclear(&list, free), ft_printf("Error\n"), 0);
 	list = get_indexed_list(map_atoi(list));
+	print_dblst(list);
+	print_instr(list, argc);
 	ft_dblstclear(&list, free);
 	return (0);
 }

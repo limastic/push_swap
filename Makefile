@@ -6,7 +6,7 @@
 #    By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 19:44:40 by nfaust            #+#    #+#              #
-#    Updated: 2022/12/15 05:16:28 by nfaust           ###   ########.fr        #
+#    Updated: 2022/12/15 06:07:20 by nfaust           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ HEADER = ft_printf/ft_printf.h \
 
 SOURCES = src/push_swap.c \
 	src/error_management.c \
-	src/utils.c
+	src/utils.c \
+	src/print_instr.c
 
 BONUS_SOURCES = \
 
