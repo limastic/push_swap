@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 18:15:52 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/15 22:02:59 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/16 00:06:31 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,5 @@ int	main(int argc, char **argv)
 		return (ft_dblstclear(&list, free), ft_printf("Error\n"), 0);
 	list = get_indexed_list(map_atoi(list));
 	print_instr(list, argc);
-	//ft_dblstclear(&list, free);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 19:44:40 by nfaust            #+#    #+#              #
-#    Updated: 2022/12/15 22:08:01 by nfaust           ###   ########.fr        #
+#    Updated: 2022/12/15 23:18:53 by nfaust           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ fclean:	clean
 	@make fclean -C ft_printf
 	${REMOVE} ${NAME}
 
-keep_o: bonus clean
+keep_o: all clean
 
 %.o : %.c ${HEADER} Makefile ${LIBFTNAME} ${PRINTFNAME}
 	${CC} ${FLAGS}  -c $< -o $@ -I . 

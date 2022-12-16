@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 20:04:31 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/15 23:11:51 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/16 01:19:51 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	push_b(t_dblist **stack_a, t_dblist **stack_b)
 	if ((*stack_a)->next)
 	{
 		*stack_a = (*stack_a)->next;
+		free((*stack_a)->prev);
 		(*stack_a)->prev = NULL;
 	}
 	else
@@ -32,6 +33,7 @@ void	push_a(t_dblist **stack_a, t_dblist **stack_b)
 	if ((*stack_b)->next)
 	{
 		*stack_b = (*stack_b)->next;
+		free((*stack_b)->prev);
 		(*stack_b)->prev = NULL;
 	}
 	else
@@ -41,34 +43,26 @@ void	push_a(t_dblist **stack_a, t_dblist **stack_b)
 
 void	rotate_a(t_dblist **stack_a)
 {
-	t_dblist	*save;
+	int	*value;
 
-	save = *stack_a;
+	value = malloc(sizeof(int));
+	*value = *(int *)(*stack_a)->content;
 	*stack_a = (*stack_a)->next;
+	ft_dblstdelone((*stack_a)->prev, free);
 	(*stack_a)->prev = NULL;
-	while ((*stack_a)->next)
-		*stack_a = (*stack_a)->next;
-	(*stack_a)->next = save;
-	(*stack_a)->next->prev = *stack_a;
-	(*stack_a)->next->next = NULL;
-	while ((*stack_a)->prev)
-		*stack_a = (*stack_a)->prev;
+	ft_dblstadd_back(stack_a, ft_dblstnew(value));
 	ft_printf("ra\n");
 }
 
 void	rotate_b(t_dblist **stack_b)
 {
-	t_dblist	*save;
+	int	*value;
 
-	save = *stack_b;
+	value = malloc(sizeof(int));
+	*value = *(int *)(*stack_b)->content;
 	*stack_b = (*stack_b)->next;
+	ft_dblstdelone((*stack_b)->prev, free);
 	(*stack_b)->prev = NULL;
-	while ((*stack_b)->next)
-		*stack_b = (*stack_b)->next;
-	(*stack_b)->next = save;
-	(*stack_b)->next->prev = *stack_b;
-	(*stack_b)->next->next = NULL;
-	while ((*stack_b)->prev)
-		*stack_b = (*stack_b)->prev;
-	ft_printf("ra\n");
+	ft_dblstadd_back(stack_b, ft_dblstnew(value));
+	ft_printf("rb\n");
 }
