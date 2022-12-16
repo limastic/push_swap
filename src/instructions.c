@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 20:04:31 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/16 01:19:51 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/16 02:48:56 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ void	push_b(t_dblist **stack_a, t_dblist **stack_b)
 		(*stack_a)->prev = NULL;
 	}
 	else
+	{
+		free(*stack_a);
 		*stack_a = NULL;
+	}
 	ft_printf("pb\n");
 }
 
@@ -37,7 +40,10 @@ void	push_a(t_dblist **stack_a, t_dblist **stack_b)
 		(*stack_b)->prev = NULL;
 	}
 	else
+	{
+		free(*stack_b);
 		*stack_b = NULL;
+	}
 	ft_printf("pa\n");
 }
 

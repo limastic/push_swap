@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:44:05 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/15 23:13:36 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/16 02:06:42 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void		push_b(t_dblist **stack_a, t_dblist **stack_b);
 void		push_a(t_dblist **stack_a, t_dblist **stack_b);
 void		rotate_a(t_dblist **stack_a);
 void		rotate_b(t_dblist **stack_b);
-void		radix_sort(t_dblist *stack_a);
+void		radix_sort(t_dblist *stack_a, int argc);
 char		**skip_zeros(char **numbers);
 t_dblist	*create_list(char **argv);
 t_dblist	*map_atoi(t_dblist *list);
