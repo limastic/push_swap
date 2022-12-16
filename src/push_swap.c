@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 18:15:52 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/16 00:06:31 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/16 04:31:57 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,14 @@ int	main(int argc, char **argv)
 
 	error = error_management(argv + 1);
 	if (error == -1)
-		return (ft_printf("Error\n"), 0);
+		return (ft_printf("error\n"), 0);
 	if (error)
 		return (0);
 	list = create_list(argv + 1);
 	if (check_duplicate(list))
 		return (ft_dblstclear(&list, free), ft_printf("Error\n"), 0);
 	list = get_indexed_list(map_atoi(list));
-	print_instr(list, argc);
+	(void) argc;
+	print_instr(list);
 	return (0);
 }

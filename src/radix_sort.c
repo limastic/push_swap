@@ -6,22 +6,25 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 06:21:46 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/16 02:50:06 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/16 05:15:49 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
 static void	split_stacks(t_dblist **stack_a, t_dblist **stack_b,
-					int index, int argc)
+					int index, size_t list_len)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (i++ < argc - 1)
+	while (i++ < list_len)
 	{
 		if ((*(int *)(*stack_a)->content >> index) & 1)
-			rotate_a(stack_a);
+		{
+			if (ft_dblstsize(*stack_a) > 1)
+				rotate_a(stack_a);
+		}
 		else
 			push_b(stack_a, stack_b);
 	}
@@ -47,7 +50,9 @@ static int	is_sorted(t_dblist *stack_a)
 	return (1);
 }
 
-void	radix_sort(t_dblist *stack_a, int argc)
+#include <stdio.h>
+
+void	radix_sort(t_dblist *stack_a, size_t list_len)
 {
 	t_dblist	*stack_b;
 	int			i;
@@ -58,7 +63,7 @@ void	radix_sort(t_dblist *stack_a, int argc)
 	stack_b = NULL;
 	while (index < i && !is_sorted(stack_a))
 	{
-		split_stacks(&stack_a, &stack_b, index++, argc);
+		split_stacks(&stack_a, &stack_b, index++, list_len);
 		refill_a(&stack_a, &stack_b);
 	}
 	ft_dblstclear(&stack_a, free);
