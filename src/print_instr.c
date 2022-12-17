@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 06:07:54 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/17 05:10:35 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/17 07:57:59 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,4 @@ void	print_instr(t_dblist *stack_a)
 		little_sort(stack_a, list_len);
 	if (list_len > 3)
 		radix_sort(stack_a, list_len);
-	//else
-	//	selection_sort(stack_a);
 }
