@@ -6,12 +6,12 @@
 #    By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 19:44:40 by nfaust            #+#    #+#              #
-#    Updated: 2022/12/15 23:18:53 by nfaust           ###   ########.fr        #
+#    Updated: 2022/12/17 05:08:54 by nfaust           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wextra -Wall# -Werror
 ARCHIVE = ar rc
 REMOVE = rm -f
 
@@ -29,7 +29,8 @@ SOURCES = src/push_swap.c \
 	src/print_instr.c \
 	src/instructions.c \
 	src/radix_sort.c \
-	src/selection_sort.c
+	src/selection_sort.c \
+	src/little_sort.c
 
 OBJ = $(SOURCES:.c=.o)
 

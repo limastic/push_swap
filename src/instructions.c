@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 20:04:31 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/16 02:48:56 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/17 05:06:50 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,28 +47,41 @@ void	push_a(t_dblist **stack_a, t_dblist **stack_b)
 	ft_printf("pa\n");
 }
 
-void	rotate_a(t_dblist **stack_a)
+void	rotate(t_dblist **stack, char stack_id)
 {
 	int	*value;
 
 	value = malloc(sizeof(int));
-	*value = *(int *)(*stack_a)->content;
-	*stack_a = (*stack_a)->next;
-	ft_dblstdelone((*stack_a)->prev, free);
-	(*stack_a)->prev = NULL;
-	ft_dblstadd_back(stack_a, ft_dblstnew(value));
-	ft_printf("ra\n");
+	*value = *(int *)(*stack)->content;
+	*stack = (*stack)->next;
+	ft_dblstdelone((*stack)->prev, free);
+	(*stack)->prev = NULL;
+	ft_dblstadd_back(stack, ft_dblstnew(value));
+	ft_printf("r%c\n", stack_id);
 }
 
-void	rotate_b(t_dblist **stack_b)
+void	rrotate(t_dblist **stack, char stack_id)
 {
 	int	*value;
 
 	value = malloc(sizeof(int));
-	*value = *(int *)(*stack_b)->content;
-	*stack_b = (*stack_b)->next;
-	ft_dblstdelone((*stack_b)->prev, free);
-	(*stack_b)->prev = NULL;
-	ft_dblstadd_back(stack_b, ft_dblstnew(value));
-	ft_printf("rb\n");
+	*stack = ft_dblstlast(*stack);
+	*value = *(int *)(*stack)->content;
+	*stack = (*stack)->prev;
+	ft_dblstdelone((*stack)->next, free);
+	(*stack)->next = NULL;
+	while ((*stack)->prev)
+		*stack = (*stack)->prev;
+	ft_dblstadd_front(stack, ft_dblstnew(value));
+	ft_printf("rr%c\n", stack_id);
+}
+
+void	swap(t_dblist **stack, char stack_id)
+{
+	int	*temp;
+
+	temp = (int *)(*stack)->content;
+	(*stack)->content = (*stack)->next->content;
+	(*stack)->next->content = temp;
+	ft_printf("s%c\n", stack_id);
 }
