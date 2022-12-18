@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 06:21:46 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/17 07:55:59 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/18 04:17:07 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,14 @@ static void	refill_a(t_dblist **stack_a, t_dblist **stack_b, int index)
 		if (!((*(int *)(*stack_b)->content >> index) & 1) &&
 		!is_sorted(*stack_a))
 		{
-			if (!first_elt)
+			if (!first_elt && ft_dblstsize(*stack_b) > 1)
 			{
 				first_elt = *(int *)(*stack_b)->content;
 				if (ft_dblstsize(*stack_b) > 1)
 					rotate(stack_b, 'b');
 			}
-			else if (*(int *)(*stack_b)->content != first_elt)
+			else if (*(int *)(*stack_b)->content != first_elt
+			&& ft_dblstsize(*stack_b) > 1)
 				rotate(stack_b, 'b');
 			else
 				is_rotated = 1;
