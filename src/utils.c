@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:26:12 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/15 05:30:23 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/18 05:27:43 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	**skip_zeros(char **numbers)
 		k = 0;
 		if (numbers[i][j] == '-' && ++k)
 			j++;
-		while (numbers[i][j] == '0' && numbers[i][j + 1])
+		while ((numbers[i][j] == '0' || numbers[i][j] == '+') && numbers[i][j + 1])
 			j++;
 		if (j)
 		{

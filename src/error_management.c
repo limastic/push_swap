@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:39:31 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/14 23:19:01 by nfaust           ###   ########.fr       */
+/*   Updated: 2022/12/18 05:55:12 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ static int	check_non_numeric(char **argv)
 		while (argv[i][j])
 		{
 			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' '
-				&& argv[i][j] != '-')
+				&& argv[i][j] != '-' && argv[i][j] != '+')
 				return (1);
-			if (argv[i][j] == '-' && j && argv[i][j - 1] == '-')
+			if (j && ((argv[i][j] == '-' && argv[i][j - 1] == '-')
+				|| (argv[i][j] == '+' && argv[i][j - 1] == '+')))
 				return (1);
 			j++;
 		}
@@ -93,7 +94,7 @@ static int	check_len(char **argv)
 	return (0);
 }
 
-int	error_management(char **argv)
+int	error_management(char **argv, int argc)
 {
 	if (!argv[0])
 		return (1);
