@@ -6,12 +6,12 @@
 #    By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 19:44:40 by nfaust            #+#    #+#              #
-#    Updated: 2022/12/17 05:08:54 by nfaust           ###   ########.fr        #
+#    Updated: 2023/01/04 22:05:07 by nfaust           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-FLAGS = -Wextra -Wall# -Werror
+FLAGS = -Wextra -Wall -Werror
 ARCHIVE = ar rc
 REMOVE = rm -f
 
@@ -65,4 +65,4 @@ re:    fclean all
 fsan: re
 	${CC} ${FLAGS} -fsanitize=address -g3 ${OBJ} ${LIBFTNAME} ${PRINTFNAME} -o ${NAME}
 
-.PHONY: re fclean all clean libft keep_o ft_printf
+.PHONY: re fclean all clean libft keep_o ft_printf fsan

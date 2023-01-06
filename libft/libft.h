@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:14:40 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/15 01:21:23 by nfaust           ###   ########.fr       */
+/*   Updated: 2023/01/05 22:16:56 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ t_list		*ft_lstnew(void *content);
 t_list		*ft_lstlast(t_list *lst);
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_dblist	*ft_dblstlast(t_dblist *lst);
+t_dblist	*ft_dblstfirst(t_dblist *list);
 t_dblist	*ft_dblstnew(void *content);
 t_dblist	*ft_dblstmap(t_dblist *lst, void *(*f)(void *),
 				void (*del)(void *));

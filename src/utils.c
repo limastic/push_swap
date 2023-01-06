@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:26:12 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/18 05:27:43 by nfaust           ###   ########.fr       */
+/*   Updated: 2023/01/05 23:34:07 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ char	**skip_zeros(char **numbers)
 	{
 		j = 0;
 		k = 0;
-		if (numbers[i][j] == '-' && ++k)
+		if ((numbers[i][j] == '-' && ++k) || numbers[i][j] == '+')
 			j++;
-		while ((numbers[i][j] == '0' || numbers[i][j] == '+') && numbers[i][j + 1])
+		while (numbers[i][j] == '0' && numbers[i][j + 1])
 			j++;
 		if (j)
 		{
@@ -95,6 +95,8 @@ t_dblist	*map_atoi(t_dblist *list)
 	while (curr)
 	{
 		i = malloc(sizeof(int));
+		if (!i)
+			return (NULL);
 		*i = ft_atoi(curr->content);
 		new = ft_dblstnew(i);
 		ft_dblstadd_back(&first_elt, new);
@@ -102,4 +104,30 @@ t_dblist	*map_atoi(t_dblist *list)
 	}
 	ft_dblstclear(&list, free);
 	return (first_elt);
+}
+
+t_dblist	*replace_minus_zero(t_dblist *list)
+{
+	t_dblist	*no_zero;
+	t_dblist	*cpy;
+
+	cpy = list;
+	no_zero = NULL;
+	if (cpy)
+	{
+		if (!ft_strncmp((char *)cpy->content, "-0", 3))
+			no_zero = ft_dblstnew(ft_strdup("0"));
+		else
+			no_zero = ft_dblstnew(ft_strdup(cpy->content));
+		cpy = cpy->next;
+	}
+	while (cpy)
+	{
+		if (!ft_strncmp((char *)cpy->content, "-0", 3))
+			ft_dblstadd_back(&no_zero, ft_dblstnew(ft_strdup("0")));
+		else
+			ft_dblstadd_back(&no_zero, ft_dblstnew(ft_strdup(cpy->content)));
+		cpy = cpy->next;
+	}
+	return (no_zero);
 }

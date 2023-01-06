@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 06:22:00 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/18 05:48:23 by nfaust           ###   ########.fr       */
+/*   Updated: 2023/01/06 00:06:13 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ static void	_push_min(t_dblist **stack_a, t_dblist **stack_b)
 		while (*(int *)(*stack_a)->content != min_value)
 			rotate(stack_a, 'a');
 	}
-	push_b(stack_a, stack_b);
+	if (!is_sorted(*stack_a))
+		push_b(stack_a, stack_b);
 }
 
 void	selection_sort(t_dblist *stack_a)

@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 20:04:31 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/17 05:06:50 by nfaust           ###   ########.fr       */
+/*   Updated: 2023/01/05 23:35:32 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	rotate(t_dblist **stack, char stack_id)
 	int	*value;
 
 	value = malloc(sizeof(int));
+	if (!value)
+		return ;
 	*value = *(int *)(*stack)->content;
 	*stack = (*stack)->next;
 	ft_dblstdelone((*stack)->prev, free);
@@ -65,6 +67,8 @@ void	rrotate(t_dblist **stack, char stack_id)
 	int	*value;
 
 	value = malloc(sizeof(int));
+	if (!value)
+		return ;
 	*stack = ft_dblstlast(*stack);
 	*value = *(int *)(*stack)->content;
 	*stack = (*stack)->prev;

@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:39:31 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/18 05:55:12 by nfaust           ###   ########.fr       */
+/*   Updated: 2023/01/05 22:26:37 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static int	check_len(char **argv)
 	return (0);
 }
 
-int	error_management(char **argv, int argc)
+int	error_management(char **argv)
 {
 	if (!argv[0])
 		return (1);
@@ -108,6 +108,7 @@ int	check_duplicate(t_dblist *list)
 	t_dblist	*tmp;
 	size_t		tmp_len;
 
+	list = replace_minus_zero(list);
 	if (list)
 	{
 		while (list->next)
@@ -118,10 +119,15 @@ int	check_duplicate(t_dblist *list)
 			{
 				list = list->next;
 				if (!ft_memcmp(tmp->content, list->content, tmp_len + 1))
-					return (1);
+				{
+					while (list->prev)
+						list = list->prev;
+					return (ft_dblstclear(&list, free), 1);
+				}
 			}
 			list = tmp->next;
 		}
 	}
-	return (0);
+	list = ft_dblstfirst(list);
+	return (ft_dblstclear(&list, free), 0);
 }

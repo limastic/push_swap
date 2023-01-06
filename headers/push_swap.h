@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:44:05 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/18 05:19:07 by nfaust           ###   ########.fr       */
+/*   Updated: 2023/01/05 03:51:02 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 # include "../libft/libft.h"
 
-int			error_management(char **argv, int argc);
+int			error_management(char **argv);
 int			check_duplicate(t_dblist *list);
 int			is_sorted(t_dblist *stack);
 int			is_reversed(t_dblist *stack);
@@ -31,6 +31,7 @@ void		selection_sort(t_dblist *stack_a);
 char		**skip_zeros(char **numbers);
 t_dblist	*create_list(char **argv);
 t_dblist	*map_atoi(t_dblist *list);
+t_dblist	*replace_minus_zero(t_dblist *list);
 
 void		print_dblst(t_dblist *list);
 

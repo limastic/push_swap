@@ -6,7 +6,7 @@
 #    By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 17:02:57 by nfaust            #+#    #+#              #
-#    Updated: 2022/12/17 04:59:25 by nfaust           ###   ########.fr        #
+#    Updated: 2023/01/05 22:17:44 by nfaust           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,7 @@ SOURCES = ft_atoi.c \
 	ft_dblstclear.c \
 	ft_dblstdelone.c \
 	ft_dblstlast.c \
+	ft_dblstfirst.c \
 	ft_dblstnew.c \
 	ft_dblstmap.c
 
