@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:26:12 by nfaust            #+#    #+#             */
-/*   Updated: 2023/01/05 23:34:07 by nfaust           ###   ########.fr       */
+/*   Updated: 2023/01/06 03:57:45 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,8 @@ t_dblist	*map_atoi(t_dblist *list)
 	{
 		i = malloc(sizeof(int));
 		if (!i)
-			return (NULL);
+			return (ft_dblstclear(&first_elt, free),
+				ft_dblstclear(&list, free), NULL);
 		*i = ft_atoi(curr->content);
 		new = ft_dblstnew(i);
 		ft_dblstadd_back(&first_elt, new);
