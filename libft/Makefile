@@ -6,7 +6,7 @@
 #    By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 17:02:57 by nfaust            #+#    #+#              #
-#    Updated: 2023/01/05 22:17:44 by nfaust           ###   ########.fr        #
+#    Updated: 2023/01/10 16:18:57 by nfaust           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,9 @@ SOURCES = ft_atoi.c \
 	ft_dblstlast.c \
 	ft_dblstfirst.c \
 	ft_dblstnew.c \
-	ft_dblstmap.c
+	ft_dblstmap.c \
+	ft_free_twodimarr.c \
+	ft_isempty.c
 
 OBJ = $(SOURCES:.c=.o)
 

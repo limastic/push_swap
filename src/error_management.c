@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:39:31 by nfaust            #+#    #+#             */
-/*   Updated: 2023/01/10 15:27:27 by nfaust           ###   ########.fr       */
+/*   Updated: 2023/01/10 16:19:49 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,15 @@ static int	check_non_numeric(char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' '
+			if (!ft_isdigit(argv[i][j]) && ((argv[i][j] != ' '
 				&& argv[i][j] != '-' && argv[i][j] != '+')
+				|| (!argv[i][j + 1] && argv[i][j] != ' ')))
 				return (1);
-			if (j && ((!ft_isdigit(argv[i][j]) && argv[i][j - 1] == '-')
-				|| (!ft_isdigit(argv[i][j]) && argv[i][j - 1] == '+')))
+			if (j && (!ft_isdigit(argv[i][j]) && !ft_isdigit(argv[i][j - 1])
+				&& argv[i][j - 1] != ' '))
+				return (1);
+			if (ft_isdigit(argv[i][j]) && argv[i][j + 1]
+				&& !ft_isdigit(argv[i][j + 1]) && argv[i][j + 1] != ' ')
 				return (1);
 			j++;
 		}
@@ -98,7 +102,7 @@ int	error_management(char **argv)
 {
 	if (!argv[0])
 		return (1);
-	if (check_non_numeric(argv) || check_len(argv))
+	if (ft_isempty(argv[0]) || check_non_numeric(argv) || check_len(argv))
 		return (-1);
 	return (0);
 }
