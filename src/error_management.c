@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:39:31 by nfaust            #+#    #+#             */
-/*   Updated: 2023/01/05 22:26:37 by nfaust           ###   ########.fr       */
+/*   Updated: 2023/01/10 15:27:27 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static int	check_non_numeric(char **argv)
 			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' '
 				&& argv[i][j] != '-' && argv[i][j] != '+')
 				return (1);
-			if (j && ((argv[i][j] == '-' && argv[i][j - 1] == '-')
-				|| (argv[i][j] == '+' && argv[i][j - 1] == '+')))
+			if (j && ((!ft_isdigit(argv[i][j]) && argv[i][j - 1] == '-')
+				|| (!ft_isdigit(argv[i][j]) && argv[i][j - 1] == '+')))
 				return (1);
 			j++;
 		}
