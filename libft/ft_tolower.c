@@ -6,11 +6,11 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:22:15 by nfaust            #+#    #+#             */
-/*   Updated: 2022/11/17 17:58:22 by nfaust           ###   ########.fr       */
+/*   Updated: 2023/01/16 13:05:49 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "unistd.h"
+#include "libft.h"
 
 int	ft_tolower(int c)
 {
