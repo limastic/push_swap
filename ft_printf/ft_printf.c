@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 19:45:23 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/14 04:56:47 by nfaust           ###   ########.fr       */
+/*   Updated: 2024/01/26 15:40:11 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	formats_p_u(char c, va_list arg)
 		check_write = write(1, "0x", 2);
 		if (check_write < 0)
 			return (-1);
-		print_len += ft_putptr(va_arg(arg, uintptr_t), "0123456789abcdef",
+		print_len += ft_putptr(va_arg(arg, unsigned int), "0123456789abcdef",
 				check_write);
 		if (print_len < 0)
 			return (-1);

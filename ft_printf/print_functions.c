@@ -6,7 +6,7 @@
 /*   By: nfaust <nfaust@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 08:29:30 by nfaust            #+#    #+#             */
-/*   Updated: 2022/12/14 04:57:08 by nfaust           ###   ########.fr       */
+/*   Updated: 2024/01/26 15:40:30 by nfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	ft_puthex(unsigned int nbr, char *base, int check)
 	return (write_len);
 }
 
-int	ft_putptr(uintptr_t nbr, char *base, int check)
+int	ft_putptr(unsigned int nbr, char *base, int check)
 {
 	int	write_len;
 
